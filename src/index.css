@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+html, body {
+    background-color: rgb(235, 235, 235);
+}
+.search-icon {
+    z-index: 10;
+    color: grey;
+    cursor: pointer;
+}
