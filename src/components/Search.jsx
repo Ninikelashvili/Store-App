@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { BsSearch } from "react-icons/bs";
 import styled from "styled-components";
 import OneProduct from "./OneProduct";
@@ -6,15 +6,16 @@ import OneProduct from "./OneProduct";
 function Search() {
   const [filterItem, setFilterItem] = useState("");
 
+  const handleFilter = useCallback((e) => {
+    setFilterItem(e.target.value);
+  }, []);
+
+  console.log(handleFilter);
   return (
     <>
       <Searchinput>
         <BsSearch className="search-icon" />
-        <Input
-          type="text"
-          id="SearchInput"
-          onChange={(e) => setFilterItem(e.target.value)}
-        />
+        <Input type="text" id="SearchInput" onChange={handleFilter} />
       </Searchinput>
       <OneProduct filterItem={filterItem} />
     </>

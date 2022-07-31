@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useCart } from "../Context/cartContext";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import { DiJqueryLogo } from "react-icons/di";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -28,7 +27,11 @@ function Header() {
 
   return (
     <Navigation>
-      {active ? (
+      <BackButton onClick={handleClick} disabled={!active}>
+        {active && <IoIosArrowRoundBack />}
+      </BackButton>
+
+      {/* {active ? (
         <BackButton onClick={handleClick}>
           <IoIosArrowRoundBack />
         </BackButton>
@@ -38,7 +41,7 @@ function Header() {
             <DiJqueryLogo />
           </BackButton>
         </Link>
-      )}
+      )} */}
       <NavLink to="/cart">
         <BsMinecart /> {items.length}
       </NavLink>
@@ -50,6 +53,7 @@ const BackButton = styled.button`
   background: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
   svg {
     font-size: 30px;
     cursor: pointer;
@@ -65,7 +69,6 @@ const Navigation = styled.div`
   padding: 0 0 5% 0;
   font-size: 20px;
   color: grey;
-  cursor: pointer;
 `;
 
 const NavLink = styled(Link)`

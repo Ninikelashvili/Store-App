@@ -3,7 +3,7 @@ const cartReducer = (state, action) => {
     case "ADD":
       return [...state, action.item];
     default:
-      throw new Error(`unknown action ${action.type}`);
+      return state;
   }
 };
 

@@ -40,6 +40,10 @@ function OneProduct({ filterItem }) {
   );
 }
 const Product = styled.div`
+  @media (max-width: 500px) {
+    max-width: 300px;
+    height: 400px;
+  }
   max-width: 400px;
   width: 100%;
   margin-bottom: 5%;
